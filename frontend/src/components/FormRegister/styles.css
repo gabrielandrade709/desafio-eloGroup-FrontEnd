@@ -1,0 +1,127 @@
+input, label {
+  display: block;
+}
+
+label {
+  margin-left: 2%;
+  padding-bottom: 8%;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+input {
+  margin-bottom: 12%;
+  width: 220px;
+  height: 30px;
+  font-size: 12px;
+  border: 1px solid black;
+}
+
+input:hover {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline-style: none;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.logo {
+  width: 270px;
+}
+
+.div-form label:nth-child(1) {
+  margin-top: 20%;
+}
+
+.div-logo {
+  margin-top: -10%;
+}
+
+.main-form {
+  border: 2px solid black;
+  width: 350px;
+  height: 580px;
+}
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.center-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-logo {
+  margin-bottom: 1%;
+}
+
+.register {
+  background: transparent;
+  width: 220px;
+  text-align: center;
+  justify-content: center;
+  color: black;
+  font-weight: 100;
+  height: 50px;
+  border: 2px solid black;
+  font-weight: 600;
+}
+
+.register:hover {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.form-error {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  
+}
+
+.div-form-error {
+  margin-left: 2%;
+  margin-top: -8%;
+  width: 200px;
+}
+
+@media screen and (min-width: 280px) and (max-width:362px) {
+  label {
+    font-size: 10px;
+  }
+  input {
+    width: 170px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .logo {
+    width: 200px;
+  }
+  .div-logo {
+    margin-top: -10%;
+  }
+  .main-form {
+    width: 250px;
+    height: 500px;
+  }
+  .register {
+    width: 170px;
+    height: 50px;
+  }
+
+  .div-form-error {
+    margin-left: 2%;
+    margin-top: -8%;
+    width: 150px;
+  }
+}
