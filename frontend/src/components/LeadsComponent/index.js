@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
+import InputMask from 'react-input-mask';
 
 import '@atlaskit/css-reset';
 import './styles.css';
@@ -122,6 +123,40 @@ class LeadsComponent extends React.Component {
   };
 
   render() {
+
+    var form = document.getElementById('sectionForm');
+
+    function valthis() {
+      const form = document.querySelector('#sectionForm');
+      const checkboxes = form.querySelectorAll('input[type=checkbox]');
+      const checkboxLength = checkboxes.length;
+      const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+      function init() {
+        if (firstCheckbox) {
+          for (let i = 0; i < checkboxLength; i++) {
+            checkboxes[i].addEventListener('change', checkValidity);
+          }
+
+          checkValidity();
+        }
+      }
+
+      function isChecked() {
+        for (let i = 0; i < checkboxLength; i++) {
+          if (checkboxes[i].checked) return true;
+        }
+
+        return false;
+      }
+
+      function checkValidity() {
+        const errorMessage = !isChecked() ? 'Selecione ao menos uma oportunidade!' : '';
+        firstCheckbox.setCustomValidity(errorMessage);
+      }
+
+      init();
+    }
     return (
       <>
         <div className="container d-flex justify-content-center">
@@ -155,31 +190,31 @@ class LeadsComponent extends React.Component {
                   </div>
                   <h5 class="modal-title" id="staticBackdropLabel">Novo Lead</h5>
                   <div class="modal-body">
-                    <form className="row form-leads" >
+                    <form id="sectionForm" className="row form-leads" >
                       <div className="col-lg-6 col-md-6 col-sm-12 input-leads-div ">
                         <label className="label-leads" htmlFor="nome">Nome *</label>
                         {/* <div className="div-form-error">
                   <span className="form-error">{this.state.errors["user"]}</span>
                 </div> */}
-                        <input className="input-leads" type="text" name="nome" placeholder="informe o seu nome" />
+                        <input className="input-leads" type="text" name="nome" placeholder="informe o seu nome" required />
 
                         <label className="label-leads" htmlFor="telefone">Telefone *</label>
                         {/* <div className="div-form-error">
                   <span className="form-error">{this.state.errors["password"]}</span>
                 </div> */}
-                        <input className="input-leads" type="number" name="telefone" placeholder="informe o seu telefone" />
+                        <InputMask mask="(99) 9999-9999" className="input-leads" name="telefone" placeholder="informe o seu telefone" required />
 
                         <label className="label-leads" htmlFor="email" >Email *</label>
                         {/* <div className="div-form-error">
                   <span className="form-error">{this.state.errors["confirmPassword"]}</span>
                 </div> */}
-                        <input className="input-leads" type="email" name="email" placeholder="informe o seu email" />
+                        <input className="input-leads" type="email" name="email" placeholder="informe o seu email" required />
                       </div>
                       <div className="col-lg-6 col-md-6 col-sm-12 checkbox-leads-div">
                         <h3 className="title-checkbox">Oportunidades *</h3>
                         <CheckBox />
                         <br></br>
-                        <button className="save-lead">Salvar</button>
+                        <button className="save-lead" onClick={valthis} >Salvar</button>
                       </div>
                     </form>
                   </div>
