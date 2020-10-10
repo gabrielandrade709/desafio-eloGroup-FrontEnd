@@ -1,8 +1,8 @@
-input, label {
+.input-register, .label-register {
   display: block;
 }
 
-label {
+.label-register {
   color: white;
   margin-left: 2%;
   padding-bottom: 8%;
@@ -10,7 +10,7 @@ label {
   font-weight: 600;
 }
 
-input {
+.input-register {
   margin-bottom: 12%;
   width: 220px;
   height: 30px;
@@ -19,11 +19,11 @@ input {
   border-radius: 10px;
 }
 
-input:hover {
+.input-register:hover {
   box-shadow: 0px 4px 10px black;
 }
 
-input:focus {
+.input-register:focus {
   outline-style: none;
   box-shadow: 0px 4px 10px black;
 }
@@ -91,7 +91,6 @@ input:focus {
   color: red;
   font-size: 12px;
   font-weight: bold;
-  
 }
 
 .div-form-error {
@@ -101,10 +100,10 @@ input:focus {
 }
 
 @media screen and (min-width: 280px) and (max-width:362px) {
-  label {
+  .label-register {
     font-size: 10px;
   }
-  input {
+  .input-register {
     width: 170px;
     height: 30px;
     font-size: 10px;
@@ -123,7 +122,6 @@ input:focus {
     width: 170px;
     height: 50px;
   }
-
   .div-form-error {
     margin-left: 2%;
     margin-top: -8%;

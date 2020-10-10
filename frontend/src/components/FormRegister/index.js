@@ -96,23 +96,23 @@ class FormRegister extends React.Component {
             </div>
             <div className="div-form">
               <form id="form1" onSubmit={this.registerSubmit.bind(this)}>
-                <label htmlFor="user">Usuário *</label>
+                <label className="label-register" htmlFor="user">Usuário *</label>
                 <div className="div-form-error">
                   <span className="form-error">{this.state.errors["user"]}</span>
                 </div>
-                <input type="text" name="user" onChange={this.handleChange.bind(this, "user")} value={this.state.fields["user"]} />
+                <input className="input-register" type="text" name="user" onChange={this.handleChange.bind(this, "user")} value={this.state.fields["user"]} />
 
-                <label htmlFor="password">Password *</label>
+                <label className="label-register" htmlFor="password">Password *</label>
                 <div className="div-form-error">
                   <span className="form-error">{this.state.errors["password"]}</span>
                 </div>
-                <input type="password" name="password" placeholder="*******" onChange={this.handleChange.bind(this, "password")} value={this.state.fields["password"]} />
+                <input className="input-register" type="password" name="password" placeholder="*******" onChange={this.handleChange.bind(this, "password")} value={this.state.fields["password"]} />
 
-                <label htmlFor="confirmPassword" >Confirmação Password *</label>
+                <label className="label-register" htmlFor="confirmPassword" >Confirmação Password *</label>
                 <div className="div-form-error">
                   <span className="form-error">{this.state.errors["confirmPassword"]}</span>
                 </div>
-                <input type="password" name="confirmPassword" placeholder="*******" onChange={this.handleChange.bind(this, "confirmPassword")} value={this.state.fields["confirmPassword"]} />
+                <input className="input-register" type="password" name="confirmPassword" placeholder="*******" onChange={this.handleChange.bind(this, "confirmPassword")} value={this.state.fields["confirmPassword"]} />
 
                 <button type="submit" form="form1" value="Submit" className="register">
                   Registrar

@@ -7,12 +7,15 @@ import '@atlaskit/css-reset';
 import './styles.css';
 
 import Column from './column';
+import CheckBox from '../CheckBoxLeads/index';
+
+import Logo from '../../assets/FormRegister/logo.jpg';
 
 const initialData = {
   tasks: {
-    'task-1': { id: 'task-1', content: 'Org.Internacionais' },
-    'task-2': { id: 'task-2', content: 'Ind.Farm.LTDA' },
-    'task-3': { id: 'task-3', content: 'Musc.Sound Live Cmp' },
+    'task-1': { id: 'task-1', content: 'Org. Internacionais' },
+    'task-2': { id: 'task-2', content: 'Ind. Farm. LTDA' },
+    'task-3': { id: 'task-3', content: 'Musc. Sound Live Cmp' },
   },
   columns: {
     'column-1': {
@@ -105,13 +108,13 @@ class LeadsComponent extends React.Component {
         [newFinish.id]: newFinish,
       },
     };
-    if (newStart.id == "column-1" && newFinish.id == "column-3") {
+    if (newStart.id == 'column-1' && newFinish.id == 'column-3') {
       return;
-    } else if (newStart.id == "column-2" && newFinish.id == "column-1") {
+    } else if (newStart.id == 'column-2' && newFinish.id == 'column-1') {
       return;
-    } else if (newStart.id == "column-3" && newFinish.id == "column-2") {
+    } else if (newStart.id == 'column-3' && newFinish.id == 'column-2') {
       return;
-    } else if (newStart.id == "column-3" && newFinish.id == "column-1") {
+    } else if (newStart.id == 'column-3' && newFinish.id == 'column-1') {
       return;
     } else {
       this.setState(newState);
@@ -125,7 +128,7 @@ class LeadsComponent extends React.Component {
           <div className="div-lead">
             <h1 className="title-lead">Painel de Leads</h1>
             <button type="button" class="btn button-lead" data-toggle="modal" data-target="#staticBackdrop">
-              Nova Lead (+)
+              Novo Lead (+)
             </button>
             <DragDropContext onDragEnd={this.onDragEnd} >
               <Container>
@@ -143,19 +146,45 @@ class LeadsComponent extends React.Component {
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Nova Lead</h5>
+                    <div className="logo-modal-leads-div">
+                      <img src={Logo} alt="Logo modal" className="logo-modal-leads" />
+                    </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <h5 class="modal-title" id="staticBackdropLabel">Novo Lead</h5>
                   <div class="modal-body">
-                    <form>
-                      <input type="text" id="content" className="teste" />
-                      <input type="submit" value="Submit" />
+                    <form className="row form-leads" >
+                      <div className="col-lg-6 col-md-6 col-sm-12 input-leads-div ">
+                        <label className="label-leads" htmlFor="nome">Nome *</label>
+                        {/* <div className="div-form-error">
+                  <span className="form-error">{this.state.errors["user"]}</span>
+                </div> */}
+                        <input className="input-leads" type="text" name="nome" placeholder="informe o seu nome" />
+
+                        <label className="label-leads" htmlFor="telefone">Telefone *</label>
+                        {/* <div className="div-form-error">
+                  <span className="form-error">{this.state.errors["password"]}</span>
+                </div> */}
+                        <input className="input-leads" type="number" name="telefone" placeholder="informe o seu telefone" />
+
+                        <label className="label-leads" htmlFor="email" >Email *</label>
+                        {/* <div className="div-form-error">
+                  <span className="form-error">{this.state.errors["confirmPassword"]}</span>
+                </div> */}
+                        <input className="input-leads" type="email" name="email" placeholder="informe o seu email" />
+                      </div>
+                      <div className="col-lg-6 col-md-6 col-sm-12 checkbox-leads-div">
+                        <h3 className="title-checkbox">Oportunidades *</h3>
+                        <CheckBox />
+                        <br></br>
+                        <button className="save-lead">Salvar</button>
+                      </div>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn close-modal" data-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>

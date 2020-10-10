@@ -1,0 +1,26 @@
+.style-checkbox-leads {
+  width: 1.1em;
+  height: 1.1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid rgba(221, 221, 221, 0.829);
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 5%;
+}
+
+.style-checkbox-leads:checked {
+  background-color: #4ca5ee !important;
+}
+
+.style-checkbox-leads:hover {
+  background-color: #ccc;
+}
+
+.style-label-checkbox-leads {
+  font-size: 12px;
+  color: #14222B;
+  font-weight: 600;
+}
