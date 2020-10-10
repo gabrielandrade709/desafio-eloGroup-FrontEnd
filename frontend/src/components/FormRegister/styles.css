@@ -3,6 +3,7 @@ input, label {
 }
 
 label {
+  color: white;
   margin-left: 2%;
   padding-bottom: 8%;
   font-size: 12px;
@@ -15,17 +16,16 @@ input {
   height: 30px;
   font-size: 12px;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 input:hover {
-  border: 2px solid black;
-  border-radius: 5px;
+  box-shadow: 0px 4px 10px black;
 }
 
 input:focus {
   outline-style: none;
-  border: 2px solid black;
-  border-radius: 5px;
+  box-shadow: 0px 4px 10px black;
 }
 
 .logo {
@@ -41,7 +41,8 @@ input:focus {
 }
 
 .main-form {
-  border: 2px solid black;
+  box-shadow: 0px 0px 50px black;
+  border-radius: 4px;
   width: 350px;
   height: 580px;
 }
@@ -66,20 +67,24 @@ input:focus {
 }
 
 .register {
-  background: transparent;
+  background: white;
+  border-radius: 15px;
   width: 220px;
   text-align: center;
   justify-content: center;
   color: black;
-  font-weight: 100;
+  font-weight: 600;
   height: 50px;
-  border: 2px solid black;
   font-weight: 600;
 }
 
 .register:hover {
-  border: 2px solid black;
-  border-radius: 5px;
+  box-shadow: 0px 4px 10px black;
+}
+
+.register:focus {
+  outline-style: none;
+  box-shadow: 0px 4px 10px black;
 }
 
 .form-error {
