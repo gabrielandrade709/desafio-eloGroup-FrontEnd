@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
-import InputMask from 'react-input-mask';
 
 import '@atlaskit/css-reset';
 import './styles.css';
@@ -13,16 +12,14 @@ import CheckBox from '../CheckBoxLeads/index';
 import Logo from '../../assets/FormRegister/logo.jpg';
 
 const initialData = {
-  tasks: {
-    'task-1': { id: 'task-1', content: 'Org. Internacionais' },
-    'task-2': { id: 'task-2', content: 'Ind. Farm. LTDA' },
-    'task-3': { id: 'task-3', content: 'Musc. Sound Live Cmp' },
-  },
+  count: 0,
+  newTask: '',
+  tasks: {},
   columns: {
     'column-1': {
       id: 'column-1',
       title: 'Cliente em Potencial',
-      taskIds: ['task-1', 'task-2', 'task-3'],
+      taskIds: [],
     },
     'column-2': {
       id: 'column-2',
@@ -46,6 +43,37 @@ const Container = styled.div`
 class LeadsComponent extends React.Component {
   state = initialData;
 
+  inputChangeHandler = ({ target: { value } }) =>
+    this.setState({
+      newTask: value,
+    });
+
+  submitHandler = e => {
+    e.preventDefault();
+    this.setState(prevState => {
+      const newCount = prevState.count + 1;
+      const newId = `task-${newCount}`;
+      return {
+        count: newCount,
+        newTask: '',
+        tasks: {
+          ...prevState.tasks,
+          [newId]: { id: newId, content: prevState.newTask },
+        },
+        columns: {
+          ...prevState.columns,
+          'column-1': {
+            ...prevState.columns['column-1'],
+            taskIds: [...prevState.columns['column-1'].taskIds, newId],
+          },
+        },
+      };
+    });
+    var frm = document.getElementsByName('form1')[0];
+    frm.reset();
+    alert("Lead incluído com sucesso!");
+
+  };
 
   onDragEnd = result => {
 
@@ -122,8 +150,8 @@ class LeadsComponent extends React.Component {
     }
   };
 
-  render() {
 
+  render() {
     var form = document.getElementById('sectionForm');
 
     function valthis() {
@@ -164,7 +192,7 @@ class LeadsComponent extends React.Component {
             <div className="row">
               <div className="col-12">
                 <h1 className="title-lead">Painel de Leads</h1>
-                <button type="button" class="btn button-lead" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="button" className="btn button-lead" data-toggle="modal" data-target="#staticBackdrop">
                   Novo Lead (+)
                 </button>
               </div>
@@ -183,26 +211,33 @@ class LeadsComponent extends React.Component {
                 </DragDropContext>
               </div>
             </div>
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
+            <div className="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
                     <div className="logo-modal-leads-div">
                       <img src={Logo} alt="Logo modal" className="logo-modal-leads" />
                     </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <h5 class="modal-title" id="staticBackdropLabel">Novo Lead</h5>
-                  <div class="modal-body">
-                    <form id="sectionForm" className="row form-leads" >
+                  <h5 className="modal-title" id="staticBackdropLabel">Novo Lead</h5>
+                  <div className="modal-body">
+                    <form id="sectionForm" className="row form-leads" name="form1" onSubmit={this.submitHandler}>
                       <div className="col-lg-6 col-md-6 col-sm-12 input-leads-div ">
                         <label className="label-leads" htmlFor="nome">Nome *</label>
-                        <input className="input-leads" type="text" name="nome" placeholder="informe o seu nome" required />
+                        <input id="content" className="input-leads" type="text" name="nome" placeholder="informe o seu nome"
+                          value={this.state.newTask}
+                          onChange={this.inputChangeHandler}
+                          required
+                        />
 
                         <label className="label-leads" htmlFor="telefone">Telefone *</label>
-                        <InputMask mask="(99) 9999-9999" className="input-leads" name="telefone" placeholder="informe o seu telefone" required />
+                        <input className="input-leads" type="number" name="telefone" 
+                          placeholder="Informe o seu telefone" 
+                          required 
+                        />
 
                         <label className="label-leads" htmlFor="email" >Email *</label>
                         <input className="input-leads" type="email" name="email" placeholder="informe o seu email" required />
@@ -215,8 +250,8 @@ class LeadsComponent extends React.Component {
                       </div>
                     </form>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn close-modal" data-dismiss="modal">Fechar</button>
+                  <div className="modal-footer">
+                    <button type="button" className="btn close-modal" data-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>

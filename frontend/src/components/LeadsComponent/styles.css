@@ -171,7 +171,7 @@ body {
   margin-bottom: 3%;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .title-checkbox {
     margin-top: 10% !important;
   }
@@ -180,34 +180,37 @@ body {
   }
 }
 
-@media screen and (width: 280px) {
+@media only screen and (width: 280px) {
   .input-leads-div {
     margin-right: 18%;
   }
+  .div-lead {
+    margin-right: -1%;
+  }
 }
 
-@media screen and (width: 411px) {
+@media only screen and (width: 411px) {
   .input-leads-div {
     margin-right: 28%;
   }
   .div-lead {
-    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 
-@media screen and (width: 540px) {
+@media only screen and (width: 540px) {
   .input-leads-div {
     margin-right: 20% !important;
   }
 }
 
-@media screen and (min-width: 411px) and (max-width: 414px) {
+@media only screen and (min-width: 411px) and (max-width: 414px) {
   .input-leads-div {
     margin-right: 29%;
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 375px) {
+@media only screen and (min-width: 320px) and (max-width: 375px) {
   .input-leads-div {
     margin-right: 23%;
   }
@@ -235,7 +238,7 @@ body {
   }
 }
 
-@media screen and (max-width: 280px) {
+@media only screen and (max-width: 280px) {
   .cFYyrx {
     margin-top: 50%;
     width: 90px;
@@ -267,20 +270,23 @@ body {
   }
 }
 
-@media screen and (width: 375px) {
+@media only screen and (width: 375px) {
   .button-lead {
     margin-left: 20px !important;
   }
-}
-
-@media screen and (width: 360px) {
-  .button-lead {
-    margin-left: 12px !important;
+  .div-lead {
+    margin-right: -1%;
   }
 }
 
-@media screen and (width: 320px) {
+@media only screen and (width: 360px) {
+  .button-lead {
+    margin-left: 11px !important;
+  }
+}
+
+@media only screen and (width: 320px) {
   .div-lead {
-    margin-right: 2%;
+    margin-right: -4%;
   }
 }
