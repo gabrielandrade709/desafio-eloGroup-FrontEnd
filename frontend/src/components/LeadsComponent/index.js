@@ -161,22 +161,28 @@ class LeadsComponent extends React.Component {
       <>
         <div className="container d-flex justify-content-center">
           <div className="div-lead">
-            <h1 className="title-lead">Painel de Leads</h1>
-            <button type="button" class="btn button-lead" data-toggle="modal" data-target="#staticBackdrop">
-              Novo Lead (+)
-            </button>
-            <DragDropContext onDragEnd={this.onDragEnd} >
-              <Container>
-                {
-                  this.state.columnOrder.map(columnId => {
-                    const column = this.state.columns[columnId];
-                    const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+            <div className="row">
+              <div className="col-12">
+                <h1 className="title-lead">Painel de Leads</h1>
+                <button type="button" class="btn button-lead" data-toggle="modal" data-target="#staticBackdrop">
+                  Novo Lead (+)
+                </button>
+              </div>
+              <div className="col-12">
+                <DragDropContext onDragEnd={this.onDragEnd} >
+                  <Container>
+                    {
+                      this.state.columnOrder.map(columnId => {
+                        const column = this.state.columns[columnId];
+                        const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
 
-                    return <Column key={column.id} column={column} tasks={tasks} />;
-                  })
-                }
-              </Container>
-            </DragDropContext>
+                        return <Column key={column.id} column={column} tasks={tasks} />;
+                      })
+                    }
+                  </Container>
+                </DragDropContext>
+              </div>
+            </div>
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -193,21 +199,12 @@ class LeadsComponent extends React.Component {
                     <form id="sectionForm" className="row form-leads" >
                       <div className="col-lg-6 col-md-6 col-sm-12 input-leads-div ">
                         <label className="label-leads" htmlFor="nome">Nome *</label>
-                        {/* <div className="div-form-error">
-                  <span className="form-error">{this.state.errors["user"]}</span>
-                </div> */}
                         <input className="input-leads" type="text" name="nome" placeholder="informe o seu nome" required />
 
                         <label className="label-leads" htmlFor="telefone">Telefone *</label>
-                        {/* <div className="div-form-error">
-                  <span className="form-error">{this.state.errors["password"]}</span>
-                </div> */}
                         <InputMask mask="(99) 9999-9999" className="input-leads" name="telefone" placeholder="informe o seu telefone" required />
 
                         <label className="label-leads" htmlFor="email" >Email *</label>
-                        {/* <div className="div-form-error">
-                  <span className="form-error">{this.state.errors["confirmPassword"]}</span>
-                </div> */}
                         <input className="input-leads" type="email" name="email" placeholder="informe o seu email" required />
                       </div>
                       <div className="col-lg-6 col-md-6 col-sm-12 checkbox-leads-div">

@@ -121,9 +121,9 @@ body {
 }
 
 .button-lead {
+  border-radius: 10px !important;
   outline-style: none !important;
   margin-top: 50%;
-  margin-bottom: -49%;
   background: white;
   border-radius: 4px;
   color: #14222B;
@@ -137,7 +137,7 @@ body {
 }
 
 .cFYyrx {
-  border-radius: 20px;
+  border-radius: 20px ;
   box-shadow: 0px 10px 15px black;
 }
 
@@ -147,8 +147,15 @@ body {
 }
 
 .cFYyrx {
-  margin-top: 50% !important;
-  border-radius: 4px !important;
+  border-radius: 10px !important;
+}
+
+.iIOxMM {
+  border-radius: 0 0 8px 8px !important;
+}
+
+.dkQbkN {
+  border-radius: 0 0 8px 8px !important;
 }
 
 .title-lead {
@@ -164,7 +171,7 @@ body {
   margin-bottom: 3%;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px){
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .title-checkbox {
     margin-top: 10% !important;
   }
@@ -172,7 +179,6 @@ body {
     margin-left: 5%;
   }
 }
-
 
 @media screen and (width: 280px) {
   .input-leads-div {
@@ -183,6 +189,9 @@ body {
 @media screen and (width: 411px) {
   .input-leads-div {
     margin-right: 28%;
+  }
+  .div-lead {
+    margin-left: 5%;
   }
 }
 
@@ -267,5 +276,11 @@ body {
 @media screen and (width: 360px) {
   .button-lead {
     margin-left: 12px !important;
+  }
+}
+
+@media screen and (width: 320px) {
+  .div-lead {
+    margin-right: 2%;
   }
 }

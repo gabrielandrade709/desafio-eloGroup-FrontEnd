@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './styles.css'
-
 import FormRegister from '../../components/FormRegister/index';
 
 const Register = () => {
